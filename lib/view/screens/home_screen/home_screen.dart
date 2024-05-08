@@ -55,6 +55,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Text('Музыкально Отлететь'),
+            Container(
+              width: double.infinity,
+              height: 300,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  _TravelCell(),
+                  _TravelCell(),
+                  _TravelCell(),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Показать все места'),
+            ),
           ],
         ),
       ),
@@ -62,14 +78,34 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// child: const Row(
-//                   children: [
-//                     Icon(Icons.search),
-//                     Column(
-//                       children: [
-//                         TextField(),
-//                         TextField(),
-//                       ],
-//                     ),
-//                   ],
-//                 ),
+class _TravelCell extends StatelessWidget {
+  const _TravelCell({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 170,
+            height: 170,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.blue,
+            ),
+          ),
+          const Text('Die Antwoord'),
+          const Text('Die Antwoord'),
+          Row(
+            children: [
+              Icon(Icons.airline_seat_legroom_normal_sharp),
+              Text('Die Antwoord'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
